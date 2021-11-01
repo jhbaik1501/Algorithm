@@ -1,8 +1,8 @@
 min_abil = 200
-x = 0
+
 def DFS(num, depth):
     global min_abil
-    global x
+    
     if depth == num //2 : 
         start = 0
         link = 0
@@ -17,8 +17,8 @@ def DFS(num, depth):
         start =start // 2
         link = link //2
         min_abil = min(min_abil, abs(start - link))
-        x+=1
-        print(abs(start - link), check, "몇번?", x)
+        
+        
         
         return min_abil
 
@@ -27,14 +27,12 @@ def DFS(num, depth):
     else :
         for i in range(num):
             
-            # if check[i] == False and depth != 0 and arr[depth-1] > i :
-            #     continue
+            
             if check[i] == False:
                 if depth != 0 and arr[depth-1] > i :
                     continue
-                #print(depth, i, "depth, i")
+                
                 arr[depth] = i
-                #print(arr)
                 check[i] = True
                 DFS(num, depth+1)
                 check[i] = False

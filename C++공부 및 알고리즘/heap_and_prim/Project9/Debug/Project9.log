@@ -1,0 +1,5 @@
+﻿  소스.cpp
+C:\Users\jonghyun\Algorithm\C++공부 및 알고리즘\heap_and_prim\Project9\소스.cpp(129,16): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\jonghyun\Algorithm\C++공부 및 알고리즘\heap_and_prim\Project9\소스.cpp(147,18): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\jonghyun\Algorithm\C++공부 및 알고리즘\heap_and_prim\Project9\소스.cpp(114,6): warning C4101: 'Out' :참조되지 않은 지역 변수입니다.
+  Project9.vcxproj -> C:\Users\jonghyun\Algorithm\C++공부 및 알고리즘\heap_and_prim\Debug\heap_and_prim.exe

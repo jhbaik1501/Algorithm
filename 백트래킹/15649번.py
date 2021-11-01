@@ -7,14 +7,13 @@ def DFS (m, n,depth):
         return
     else :
         for i in range(1,m+1) :
-            if arr[depth-1] > i :
-                if check[i] == False :
-                    
-                    arr[depth] = i
-                    check[i] = True
-                    DFS(m, n, depth+1)
+            if check[i] == False :
+                
+                arr[depth] = i
+                check[i] = True
+                DFS(m, n, depth+1)
 
-                    check[i] = False
+                check[i] = False
         return
 
 

@@ -8,7 +8,7 @@ def DFS (m, n,depth):
         return
     else :
         for i in range(1,m+1) :
-            #print(depth)
+            
             if check[i] == False and arr[depth-1] > i and depth != 1:
                 continue
                 
