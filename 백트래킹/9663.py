@@ -1,0 +1,38 @@
+'''
+힌트를 보았음.
+"중요한 부분!" -> 총 N개가 들어가야 하므로 각 행마다 1개씩 들어가야한다!
+
+col : 각 행마다 들어간 퀸의 index저장.
+시간을 줄이기 위해 하는 행동 -> col이라는 배열을 만들고, col의 다음 index로 갔을 때 
+그 자리가 올바른 자리인지 확인을 위해 check라는 함수를 생성.
+check함수는 depth와 그 전에 퀸의 index가 같은 경우 세로에 같이 서있으므로 불가. depth와 퀸의 index차이와 depth - j의 차이 비교해서 대각선도 해결.
+'''
+N = int(input())
+col = [0 for _ in range(N)]
+
+def check(depth):
+    for j in range(depth):
+        if col[j] == col[depth] or abs(col[j]- col[depth]) == depth- j:
+            return False
+    return True
+
+
+
+
+def DFS(N, depth):
+    global num 
+    if N == depth :
+        num += 1
+    else :
+        for i in range(N): 
+            col[depth] = i
+            if check(depth):
+                DFS(N, depth+1)
+            
+if __name__ == "__main__":
+
+    num = 0
+    DFS(N, 0)
+
+    print(num)
+    
