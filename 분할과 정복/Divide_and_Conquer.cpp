@@ -18,6 +18,8 @@ Merge --> 1 2 3 4 5 6 8 10 11 15
 머지는 O(n)시간!
 
 */
+#include <stdio.h>
+
 int sort(int a[], int n)
 {
     int h;
@@ -27,7 +29,7 @@ int sort(int a[], int n)
     sort(b, h);
     sort(b+h, n-h);
     // Merge two halves in b to a
-    return;
+    return 1;
 }
 
 /*
@@ -42,25 +44,100 @@ new(), malloc()을 사용해야 하는데, -> 비용이 많이 든다.
 
 그래서 Quick Sort 사용
 */
+void swap(int a[], int i, int j){
+    
+    int temp = a[i]; a[i] = a[j]; a[j] = temp; 
+
+}
 
 int Qsort(int a[], int n)
 {
-    // if <= 5 do selection sort
-    // else
-    int p = a[0]; //-> pivot
-    int i = 1; int j = n -1;
-    while(i < j){
-        while(a[i] < p && i<n) i++;
-        while(a[j] < p) j--;
-        if (i < j) swap a[i], a[j];
+    if(n <= 5){
+        int least;
+        for (int i =0; i< n-1; i++){
+            least= i;
+
+            for(int j = i+1; j<n; j++){
+                if(a[j] <a[least])
+                    least = j;
+            }
+
+            if(i != least){
+                swap(a, i, least);
+            }
+        }
+
     }
-    swap a[0] and a[j];
-    //피봇을 기준으로 앞에는 피봇보다 작고 뒤에는 피봇보다 크도록 설정하는 코드들.
-    
-    Qsort(a,j); Qsort(a+j+1, n-j-1); // 여기까지 오면서 setup을 해놓았음.
-    return;
+
+     else{
+
+     
+        int p = a[0]; //-> pivot
+        int i = 1; int j = n -1;
+        while(i < j){
+            while(a[i] < p && i<n) i++;
+            while(a[j] > p) j--;
+
+            if (i < j) {
+                swap(a, i, j);
+                i++;
+                j--;
+            }
+            
+            
+        }
+        swap(a, 0, j);
+        //피봇을 기준으로 앞에는 피봇보다 작고 뒤에는 피봇보다 크도록 설정하는 코드들.
+        
+        Qsort(a,j); Qsort(a+j+1, n-j-1); // 여기까지 오면서 setup을 해놓았음.
+        return 1;
+    }
 }
 
+
+/* 
+Quick Sort에서 Median을 찾는 경우 아주 성능이 좋아짐.
+-> Median을 찾는 Selection problem
+Median을 찾아보자.
+Approximate Median Problem
+
+
+r = 0.3으로 고정.
+
+ㅇㅇㅇㅇㅇ|ㅇㅇㅇㅇㅇ|ㅇㅇㅇㅇㅇ|ㅇㅇㅇㅇㅇ
+각자 sort  각자 sort  각자 sort 각자 sort
+ ㅇ ㅇ ..ㅇ.. ㅇ ㅇ
+ ㅇ ㅇ ..ㅇ.. ㅇ ㅇ
+(ㅇ ㅇ ..ㅇ.. ㅇ ㅇ) -> Sorting 했다고 상상. 나머지는 따라서 움직였다. 중간값을 정했다고 상상.
+ ㅇ ㅇ ..ㅇ.. ㅇ ㅇ
+ ㅇ ㅇ ..ㅇ.. ㅇ ㅇ
+ -> 이렇게 되는경우 오른쪽 위 30% 왼쪽 아래 30%
+
+ n개 Approxi.Median - 5개의 그룹, 개별 그룹 sort, O(n)
+                    - n/5개에서 Median -> selection 사용.
+                    - 끝.
+*/
+
+
+
+
+int main(){
+    int N;
+    scanf("%d", &N);
+    int k[1000];
+    int a = 0;
+    for (int i= 0; i< N; i++){
+        scanf("%d", &a);
+        k[i]=a;
+    }
+    
+        
+    Qsort(k, N);
+
+    for (int i = 0; i<N; i++){
+        printf("%d\n", k[i]);
+    }
+}
 /*
     최악의 경우 O(n^2)
     피봇이 끝에 있는 경우.
