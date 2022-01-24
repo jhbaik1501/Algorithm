@@ -38,7 +38,7 @@ int main(){
             }
         }
 
-        cout << value[i] << ": "<<DP[0][i] << ", "<<DP[1][i] << "\n";
+        //cout << value[i] << ": "<<DP[0][i] << ", "<<DP[1][i] << "\n";
     }
 
     int idx = 1;
