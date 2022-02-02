@@ -19,7 +19,10 @@ int dy[4] = {0, 0, 1, -1};
 
 
 int main(){
+    ios::sync_with_stdio(0);
+    cin.tie(0);
     cin >> N >> M;
+    
     string s = "";
 
     for(int i = 0; i < N; i++){
@@ -43,7 +46,7 @@ int main(){
     while(!Q.empty()){
         temp = Q.front();
         Q.pop();
-        cout << "temp "<<temp.first.first << ", " << temp.first.second << ", "<<temp.second <<"\n";
+        //cout << "temp "<<temp.first.first << ", " << temp.first.second << ", "<<temp.second <<"\n";
         for(int i =0; i< 4; i++){
             int x = dx[i] + temp.first.first;
             int y = dy[i] + temp.first.second;

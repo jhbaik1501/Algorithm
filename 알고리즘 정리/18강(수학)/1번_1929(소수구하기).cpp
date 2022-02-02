@@ -1,5 +1,4 @@
 /* 에라토스테네스의 체 이용 */
-
 #include <stdio.h>
 #include <iostream>
 #include <cstring>

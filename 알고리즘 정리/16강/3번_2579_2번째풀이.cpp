@@ -1,3 +1,4 @@
+//그냥 안 밟은것을 기준으로 생각한다.
 #include <stdio.h>
 #include <iostream>
 #include <cstring>
