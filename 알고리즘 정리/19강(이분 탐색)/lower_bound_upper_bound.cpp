@@ -1,6 +1,6 @@
 //lower_bound
 //n개로 이루어진 정수 집합에서 원하는 수 k 이상인 수가 처음으로 등장하는 위치를 찾으시오
- 
+#include<algorithm>
 #include<iostream>
 using namespace std;
  
@@ -20,7 +20,7 @@ int mylower_bound(int * arr, int n, int key){
         }
 
     }
-    return end + 1;
+    return end;
 }
 
 int myupper_bound(int * arr, int n , int key){
@@ -37,7 +37,7 @@ int myupper_bound(int * arr, int n , int key){
         }
     }
 
-    return end + 1;
+    return end;
 }
 
  
@@ -49,6 +49,9 @@ int main(void){
     cout << "upper_bound(7) : " << myupper_bound(arr, 10, 7) << endl;
     cout << "lower_bound(8) : " << mylower_bound(arr, 10, 8) << endl;
     cout << "lower_bound(9) : " << mylower_bound(arr, 10, 9) << endl;
+
+    cout << "STL lower_bound : " << lower_bound(arr, arr + 10, 6) - arr<< "\n";
+    cout << "STL upper_bound : " << upper_bound(arr, arr + 10, 6) - arr<< "\n";
     return 0;
 }
 

@@ -42,8 +42,8 @@ int main(){
     cin >> N;
     
     for(int i=0; i<N;i++)
-        for(int j=0; j<N; j++)
-            arr[i][j] = '*';
+        for(int j=0; j< N*2; j++)
+            arr[i][j] = ' ';
 
     recursive(0,0,N);
 

@@ -44,7 +44,6 @@ int BFS(){
             check[x][y] = 1;
             Q.push({{x,y}, temp.second +1});
         }
-
     }
 }
 

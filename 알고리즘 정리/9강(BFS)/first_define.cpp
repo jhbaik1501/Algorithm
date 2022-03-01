@@ -14,5 +14,5 @@ using namespace std;
 int main(){
     
     pair<int, int> P = {5, 10};
-    cout << P.X << ", "<< P.Y;
+    
 }

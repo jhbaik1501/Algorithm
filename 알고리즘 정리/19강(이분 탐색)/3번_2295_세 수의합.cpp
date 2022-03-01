@@ -1,4 +1,3 @@
-/* 에라토스테네스의 체 이용 */
 #include <stdio.h>
 #include <iostream>
 #include <cstring>
@@ -11,30 +10,36 @@ using namespace std;
 int N;
 
 int arr[1001];
+vector<int> v;
 int main(){
     ios::sync_with_stdio(0);
     cin.tie(0);
-    cout.tie(0);
     cin >> N;
 
-    
-    for (int i =0; i<N; i++){
+    for(int i=0; i<N; i++){
         cin >> arr[i];
     }
-    int max_num = 0;
-    int target;
-    sort(arr, arr + N);
-    for (int i =0; i < N; i++){
-        for (int j =0; j < N; j++){
-            for (int k = 0; k < N ; k++){
-                target = arr[i] + arr[j] + arr[k];
-                if(upper_bound(arr, arr+N,target) - lower_bound(arr, arr+N, target) >= 1){
-                    max_num = max(target, max_num);
-                }
+
+    
+
+    for(int i=0; i<N; i++){
+        for(int j=i; j<N; j++){
+            v.push_back(arr[i]+arr[j]);
+        }
+    }
+    
+    v.erase(unique(v.begin(), v.end()), v.end());
+    sort(v.begin(), v.end());
+    int ans =0;
+    int t = v.size();
+    
+    for(int i=0; i<N; i++){
+        for(int j=i; j< N; j++){
+            if(binary_search(v.begin(), v.end(), arr[j] - arr[i])){
+                ans = max(arr[j], ans);
             }
         }
     }
 
-    cout << max_num;
-
+    cout << ans;
 }
