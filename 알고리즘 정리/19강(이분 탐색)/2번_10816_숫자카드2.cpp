@@ -22,6 +22,7 @@ int main(){
     }
     cin >> M;
     int temp;
+    
     sort(arr, arr+N);
     for(int i=0; i<M; i++){
         cin >> temp;

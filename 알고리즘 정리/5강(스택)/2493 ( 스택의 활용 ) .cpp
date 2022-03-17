@@ -18,7 +18,7 @@ int main(){
     cin >> N;
 
     stack<pair<int,int>> s;
-
+    stac
     int val;
     cin >> val;
     s.push({val, 1});

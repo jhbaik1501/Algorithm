@@ -13,7 +13,12 @@
         "deque": "cpp",
         "algorithm": "cpp",
         "stack": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "list": "cpp",
+        "xhash": "cpp",
+        "xlocinfo": "cpp",
+        "xtree": "cpp"
     },
-    
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "C_Cpp.errorSquiggles": "Disabled"
 }

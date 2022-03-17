@@ -32,7 +32,7 @@ int main(){
 
     cin >> N;
     for(int i=0; i<987654321; i++){
-
+        if()
         str = to_string(i);
         
         Backtracking(0);
