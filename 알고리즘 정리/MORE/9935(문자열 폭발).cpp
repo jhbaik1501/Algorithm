@@ -16,74 +16,36 @@ int main(){
     string str, tar;
     cin >> str;
     cin >> tar;
-    stack<pair<char,int>> S;
-    vector<char> Q;
-    int idx = 0;
+    
+    string ans = "";
+    
     for(int i=0; i<str.length(); i++){
-
         
-        
-        if(!S.empty() && str[i] == tar[S.top().second + 1]){
-            S.push({str[i], S.top().second + 1});
-        }
-        else if(str[i] == tar[0]){
-            S.push({str[i], 0});    
-        }
-        else{
-            if(!S.empty()){
+        ans += str[i];
 
-                while(!S.empty()){
-                    Q.push_back(S.top().first); S.pop();
-                    
+        if(ans.back() == tar.back()){
+            int cnt = 0;
+            while(cnt < tar.size()){
+                cnt++;
+                if(ans.size()-cnt < 0) break;
+                if(ans[ans.size()-cnt-1] == tar[tar.size()-cnt-1]){
+                    continue;
+                }
+                else {
+                    break;
                 }
             }
-            Q.push_back(str[i]);
-        }
-
-        if(!S.empty()){
-            cout << S.top().first << ","<< S.top().second << "  /";
-        } 
-        
-
-        if(!S.empty() && S.top().second == tar.size()-1){
-            
-            for(int i=0; i<tar.size(); i++){
-                S.pop();
-                // cout << "Hi";
+            if(cnt == tar.size()){
+                for(int i=0; i<cnt; i++){
+                    ans.pop_back();
+                }
             }
-
         }
-
+        
+        // cout << ans << "\n";
+        
     }
-
-    while(!S.empty()){
-        Q.push_back(S.top().first); S.pop();
-    }
-
-
-    if(Q.empty()){
-        cout << "FRULA";
-    }
-    else{
-    for(auto i : Q){
-        cout << i;
-    }
-    }
+    if(ans.empty()) cout << "FRULA";
+    else cout << ans;
     
 }
-
-/*
-
-5
-8
-1 2 2
-1 3 3
-1 4 1
-1 5 10
-2 4 2
-3 4 1
-3 5 1
-4 5 3
-1 5
-
-*/

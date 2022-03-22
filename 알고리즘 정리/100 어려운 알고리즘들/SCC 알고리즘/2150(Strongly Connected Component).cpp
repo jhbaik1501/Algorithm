@@ -48,7 +48,9 @@ int main(){
 			dfs(i); // 방문하지 않은 점들을 DFS 돌며 스택에 값 추가
 	}
 
-
+    while(!S.empty()){
+        cout << S.top(); S.pop();
+    }
     
     while(!S.empty()){
         int temp = S.top();

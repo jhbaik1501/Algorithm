@@ -32,8 +32,8 @@ void DFS_(int n){
 
     if(check[n] == 1) return;    
     check[n] = 1;
-    for(auto node : graph[n]){
-        DFS(node);
+    for(auto node : graph_reverse[n]){
+        DFS_(node);
     }
 
 }
@@ -44,8 +44,8 @@ int main(){
     cin.tie(0);
     cout.tie(0);
     
-    cin >> T;
-
+    // cin >> T;
+    T =1;
     while(T--){
         cin >> N >> M;
 
@@ -65,11 +65,18 @@ int main(){
         
         fill(check, check+100010, 0);
         
+        
+        // while(!S.empty()){
+        //     cout << S.top(); S.pop();
+        // }
+
         int ans = 0;
 
         while(!S.empty()){
             int temp = S.top(); S.pop();
+            cout << temp << " ";
             if(check[temp] == 1) continue;
+            // cout << temp << " ";
             ans++;
             DFS_(temp);
         }

@@ -30,7 +30,7 @@ vector<pair<int,int>> graph[10010]; // 첫번째가 연결된가, 두번째가 �
 int V, E;
 int check[10010];
 int main(){
-        
+            
     node n1 = {3,1,2};
     node n2 = {2,3,2};
     node n3 = {4,4,1};

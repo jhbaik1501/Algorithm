@@ -16,6 +16,14 @@ using namespace std;
 int main(){
     int arr[8] = {2,3,4,5,6,7,8,9};
     int temp[8] = {0,0,0,0,0,0,1,1};
+    int arr2[4] = {3,5,6,7};
+
+    do{
+        for(int i=0; i< 4; i++){
+            cout << arr[i] << " ";
+        }
+        cout << "\n";
+    }while(next_permutation(arr, arr+4));
 
     do{
         for(int i=0; i< 8; i++){

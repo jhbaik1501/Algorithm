@@ -18,6 +18,7 @@ struct vector3{
     int dir;
 };
 
+// pair<int,int> dir[4] = { {1,0}, {0,-1}, {-1,0}, {0,1} };
 pair<int,int> dir[4] = { {1,0}, {0,-1}, {-1,0}, {0,1} };
 vector3 robot[101]; // 위치
 
@@ -93,7 +94,7 @@ int main(){
 
         arr[a][b] = 1;
         arr_[a][b] = i;
-        if(d == 'E'){
+        if(d == 'W'){
             robot[i].dir = 0;
         }
         else if(d == 'W'){
